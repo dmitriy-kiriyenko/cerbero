@@ -3,7 +3,7 @@ require "cerbero/version"
 class ActiveRecord::Base
   def save
     super
-  rescue
+  rescue ActiveRecord::RecordNotUnique, ActiveRecord::StatementInvalid
     valid?
     false
   end

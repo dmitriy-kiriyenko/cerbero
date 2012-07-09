@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'database_cleaner'
 
 # Establishes database connection
 require File.join(File.dirname(__FILE__), 'database')
@@ -9,5 +10,7 @@ require File.join(File.dirname(__FILE__), 'database')
 Dir[File.join(File.dirname(__FILE__), "support", "**", "*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  # some (optional) config here
+  config.before(:each) do
+    DatabaseCleaner.clean_with :truncation
+  end
 end

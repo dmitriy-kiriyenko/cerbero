@@ -28,35 +28,12 @@ add_index :users, [:email, :company_id], unique: true
 
 and add the gem to the Gemfile.
 
-## Safe way
-
-By default gem patches all models. You may not want to do it, instead
-turning it on per-model basis. If this is what you want, add it as
-
-```ruby
-gem 'cerbero', require: 'cerbero/safe'
-```
-
-and enable it per model via
-
-```ruby
-cerbero!
-```
-
-This enables cerbero for model class and all subclasses.
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
 gem 'cerbero'
-```
-
-To use it in a safe way, add this line instead:
-
-```ruby
-gem 'cerbero', require: 'cerbero/safe'
 ```
 
 ## Contributing

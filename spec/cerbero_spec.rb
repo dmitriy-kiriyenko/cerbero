@@ -17,4 +17,13 @@ describe 'cerbero' do
 
     user.errors[:email].should_not be_blank
   end
+
+  it 'gives validation error when database constraint throws error' do
+    User.create! :email => 'test@mailinator.com', :company_id => 25
+
+    stub_uniqueness_validation!
+    Proc.new {
+      UserWithSaveError.create :email => 'test@mailinator.com', :company_id => 25
+    }.should raise_error(RuntimeError)
+  end
 end
