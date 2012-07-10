@@ -36,6 +36,11 @@ and in your migration:
 add_index :users, [:email, :company_id], unique: true
 ```
 
+__Important:__ you should add both validation and db constraint. If you
+don't supply validation, you'll have save returning false, yet no
+validation errors will be displayed, which is a strange and obscure
+behavior.
+
 Then if the gem is required, it makes the stuff work so that when the
 uniqueness validtion lets you in, but the database constraint then
 fails, `save` returns `false`, then uniqueness validation is re-run and
