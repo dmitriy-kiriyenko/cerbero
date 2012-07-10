@@ -37,7 +37,7 @@ add_index :users, [:email, :company_id], unique: true
 ```
 
 __Important:__ you should add both validation and db constraint. If you
-don't supply validation, you'll have save returning false, yet no
+don't supply validation, you'll have `save` returning `false`, yet no
 validation errors will be displayed, which is a strange and obscure
 behavior.
 
