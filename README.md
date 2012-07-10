@@ -1,6 +1,6 @@
 # Cerbero
 
-Uniqueness validation do not guarantee uniqueness. Only the database
+Uniqueness validation does not guarantee uniqueness. Only the database
 constraints do this. But there is a flaw - when database constraints
 fail, an exception is thrown, and even when we catch it, the validation
 error is not set.
