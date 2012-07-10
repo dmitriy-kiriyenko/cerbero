@@ -18,7 +18,7 @@ describe 'cerbero' do
     user.errors[:email].should_not be_blank
   end
 
-  it 'gives validation error when database constraint throws error' do
+  it 'is not pokemon exception handling' do
     User.create! :email => 'test@mailinator.com', :company_id => 25
 
     stub_uniqueness_validation!
