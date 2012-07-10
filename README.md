@@ -13,6 +13,16 @@ database constraint. Then even if uniqueness validation mistakenly let
 you in, it will break the database constraint, then revalidate and the
 validation will tell you the truth.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'cerbero'
+```
+
+## Usage
+
 Say you need the uniqueness of `email` inside the `company_id`. In your
 model you should say:
 
@@ -26,15 +36,11 @@ and in your migration:
 add_index :users, [:email, :company_id], unique: true
 ```
 
-and add the gem to the Gemfile.
+Then if the gem is required, it makes the stuff work so that when the
+uniqueness validtion lets you in, but the database constraint then
+fails, `save` returns `false`, then uniqueness validation is re-run and
+the execution flow goes like the uniqueness validation worked perfectly.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'cerbero'
-```
 
 ## Contributing
 
@@ -50,3 +56,7 @@ provide some code:
 ## TODO:
 
 - Apply a cleaner pattern to test via multiple databases.
+- Add travis-ci - it's broken for some reason.
+- Extract the save monkey-patch to module and apply the
+`alias_method_chain` pattern to avoid possible collisions.
+- Add an option to apply the gem per-model basis.
