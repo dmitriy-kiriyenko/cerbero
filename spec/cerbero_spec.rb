@@ -26,4 +26,11 @@ describe 'cerbero' do
       UserWithSaveError.create :email => 'test@mailinator.com', :company_id => 25
     }.should raise_error(RuntimeError)
   end
+
+  it 'supports saving with options' do
+    lambda {
+      user = User.new :email => 'test@mailinator.com', :company_id => 25
+      user.save(:validation => true)
+    }.should_not raise_error
+  end
 end
