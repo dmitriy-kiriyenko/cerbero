@@ -58,6 +58,10 @@ provide some code:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Contributors
+
+* [Andry Conchin](https://github.com/andrykonchin)
+
 ## TODO:
 
 - Apply a cleaner pattern to test via multiple databases.
