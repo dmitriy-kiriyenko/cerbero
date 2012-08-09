@@ -1,7 +1,7 @@
 PATH
   remote: /Users/dak/projects/cerbero
   specs:
-    cerbero (0.0.1)
+    cerbero (0.0.2)
       activerecord (>= 3.0.0)
 
 GEM
