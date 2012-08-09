@@ -1,7 +1,7 @@
 require "cerbero/version"
 
 class ActiveRecord::Base
-  def save
+  def save(*args)
     super
   rescue ActiveRecord::StatementInvalid
     valid?
